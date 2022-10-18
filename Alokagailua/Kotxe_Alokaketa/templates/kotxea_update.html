@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "add.css" %}">
+    </head>
+    <body>
+        <div>
+            <h1>Kotxea Update</h1>
+
+            <form action="kotxea_updaterecord/{{ kotx.id }}" method="post">
+            {% csrf_token %}
+            Modeloa:<br>
+            <input name="modeloa" value="{{ kotx.modeloa }}">
+            <br><br>
+            Kolorea<br>
+            <input name="kolorea" value="{{ kotx.kolorea }}">
+            <br><br>
+            Alokatze Data<br>
+            <input name="alokatzedata" value="{{ kotx.alokatzedata }}">
+            <br><br>
+            <select name="pertsona">
+                {% for pe in perts %}  
+                <option value="{{pe.id}}">{{pe.izena}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Aldatu">
+            </form>
+        </div>  
+    </body>
+</html>

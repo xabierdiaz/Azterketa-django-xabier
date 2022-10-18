@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "add.css" %}">
+    </head>
+    <body>
+        <div>
+            <h1>Pertsona Update</h1>
+
+            <form action="pertsona_updaterecord/{{ per.id }}" method="post">
+            {% csrf_token %}
+            Izena:<br>
+            <input name="izena" value="{{ per.izena }}">
+            <br><br>
+            Abizena<br>
+            <input name="abizena" value="{{ per.abizena }}">
+            <br><br>
+            <input type="submit" value="Aldatu">
+            </form>
+        </div>  
+    </body>
+</html>

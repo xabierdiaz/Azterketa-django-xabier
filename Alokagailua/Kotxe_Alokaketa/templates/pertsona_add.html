@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "add.css" %}">
+    </head>
+    <body>
+        <div>
+            <h1>Pertsona Sartu</h1>
+
+            <form action="pertsona_addrecord/" method="post">
+            {% csrf_token %}
+            Izena:<br>
+            <input name="izena">
+            <br><br>
+            Abizena:<br>
+            <input name="abizena">
+            <br><br>
+            <input type="submit" value="Submit">
+            </form>
+
+            <br><br><br><br>
+            <h1>Dauden pertsonak</h1>
+            <table border="1">
+                {% for pe in per %}  
+                  <tr>
+                  <td>{{ pe.izena }}</td>
+                  <td>{{ pe.abizena }}</td>
+                  <td><a href="pertsona_delete/{{ pe.id }}">Ezabatu</a></td>
+                  <td><a href="pertsona_update/{{ pe.id }}">Aldatu</a></td>
+                  </tr>       
+                {% endfor %}             
+            </table>
+    </div>  
+
+    </body>
+</html>

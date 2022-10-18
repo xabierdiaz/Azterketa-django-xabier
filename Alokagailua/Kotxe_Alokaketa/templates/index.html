@@ -1,0 +1,34 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href={% static "index.css" %}>
+    </head>
+    <body>
+        <div>
+            <h1>Kotxe Alokaketa:</h1>
+            <table border="1">
+                {% for ko in kotx %}  
+                  <tr>
+                  <td>{{ ko.modeloa }}</td>
+                  <td>{{ ko.kolorea }}</td>
+                  <td>{{ ko.alokatzedata }}</td>
+                  <td>{{ ko.pertsona }}</td>
+                  <td><a href="delete/{{ ko.id }}">Ezabatu</a></td>
+                  <td><a href="kotxea_update/{{ ko.id }}">Aldatu</a></td>
+                  </tr>       
+                {% endfor %}             
+            </table>
+            
+            </br>
+            </br>
+            <a href="/admin">Admin</a>
+
+            </br>
+            <a href="pertsona_add/">Pertsonak sartu</a>
+            </br>
+            <a href="kotxeak_add/">Kotxeak sartu</a>
+
+    </div>  
+
+    </body>
+</html>

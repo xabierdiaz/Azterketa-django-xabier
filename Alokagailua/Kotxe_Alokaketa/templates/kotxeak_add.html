@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "add.css" %}">
+    </head>
+    <body>
+        <div>
+            <h1>Sartu Kotxea</h1>
+
+            <form action="kotxeak_addrecord/" method="post">
+            {% csrf_token %}
+            Modeloa:<br>
+            <input name="modeloa">
+            <br><br>
+            Kolorea:<br>
+            <input name="kolorea">
+            <br><br>
+            Alokatze Data:<br>
+            <input name="alokatzedata">
+            <br><br>
+            <select name="pertsona">
+                {% for per in perts %}  
+                <option value="{{per.id}}">{{per.izena}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Submit">
+            </form>
+    </div>  
+
+    </body>
+</html>
